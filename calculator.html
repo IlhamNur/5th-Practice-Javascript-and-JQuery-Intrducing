@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function hitungPerkalian(e) {
+            e.preventDefault()
+            let angka_first = document.getElementById("angka_first").value
+            let angka_second = document.getElementById("angka_second").value
+            let hasil = angka_first * angka_second
+            document.getElementById("result").value = hasil
+        }
+    </script>
+</head>
+<body>
+    <h1>Kalkulator Sederhana</h1>
+    <form action="">
+        <div style="margin-bottom: 10px;">
+            <input type="number" placeholder="Angka Pertama" id="angka_first">
+            <span>x</span>
+            <input type="number" placeholder="Angka Kedua" id="angka_second">
+            <span>=</span>
+            <input type="number" placeholder="Hasil" id="result">
+        </div>
+        <div>
+            <button onclick="hitungPerkalian(event)">Hitung</button>
+        </div>
+    </form>
+</body>
+</html>
