@@ -1,0 +1,52 @@
+<style type="text/css" class="cssStyles">
+    .frame {
+        width: 400px;
+    }
+
+    .loan, .interest, .tenure {
+        margin-top: 5px;
+        font-weight: 400;
+    }
+
+    .value, #loanText, #interestText, #tenuretext {
+        float: right;
+        position: relative;
+        width: auto;
+        padding-left: 3px;
+    }
+
+    #loanText, #interestText, #tenuretext {
+        width: auto;
+    }
+
+    #result {
+        margin-top: 25px;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .frame .e-slider-wrap {
+        display: block;
+        margin-top: 40px;
+    }
+
+    .column-left {
+        width: 35%;
+        float: left;
+        font-weight: 400;
+        margin-top: 10px;
+    }
+
+    .column-right {
+        width: 65%;
+        float: right;
+        font-weight: 600;
+        margin-top: 14px;
+    }
+
+    #loanheading {
+        font-family: 'Arial Black', Gadget, sans-serif;
+        font-size: larger;
+        padding-bottom: 15px;
+    }
+</style>
