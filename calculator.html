@@ -5,162 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="http://cdn.syncfusion.com/19.3.0.43/js/web/flat-azure/ej.web.all.min.css" rel="stylesheet"/>
-    <!--Scripts-->
-    <script src="http://cdn.syncfusion.com/js/assets/external/jquery-1.10.2.min.js"></script>
-    <script src="http://cdn.syncfusion.com/19.3.0.43/js/web/ej.web.all.min.js"></script>
     <script>
-    var angka_first, angka_second, firstValue = 0                
-        $(document).ready(function() {
-            $('#operation').ejDropDownList({
-                width: "150px"
-            });
-            var firstValue = 0
-                secondValue = 0
-            $("#firstSlider").ejSlider({
-                height: 16,
-                value: firstValue,
-                minValue: -100,
-                maxValue: 100,
-                incrementStep: 1,
-                change: "onChange",
-                slide: "onChange"
-            });
-            $("#secondSlider").ejSlider({
-                height: 16,
-                value: firstValue,
-                minValue: -100,
-                maxValue: 100,
-                incrementStep: 1,
-                change: "onChange",
-                slide: "onChange"
-            })
-
-            operation = $("#selectOp").data('ejDropDownList')
-            angka_first = $('#firstSlider').data('ejSlider')
-            angka_second = $('#secondSlider').data('ejSlider')
-
-            function hitung() {
-            var angka_first = angka_first.getValue()
-            var operation = operation.getValue()
-            var angka_second = angka_second.getValue()
+        function hitung(e) {
+            e.preventDefault()
+            let angka_first = parseInt(document.getElementById("angka_first").value, 10)
+            let angka_second = parseInt(document.getElementById("angka_second").value, 10)
+            let operation = document.getElementById("operation").value
             if (operation == "+") {
                 let hasil = angka_first + angka_second
-                $("#result").val(hasil)
+                document.getElementById("result").value = hasil
             }
             else if (operation == "-") {
                 let hasil = angka_first - angka_second
-                $("#result").val(hasil)
+                document.getElementById("result").value = hasil
             }
             else if (operation == "/") {
                 let hasil = angka_first / angka_second
-                $("#result").val(hasil)
+                document.getElementById("result").value = hasil
             }
             else if (operation == "*") {
                 let hasil = angka_first * angka_second
-                $("#result").val(hasil)
+                document.getElementById("result").value = hasil
             }
-
-            }
-            $("#hitungBtn").click(function(e) {
-                e.preventDefault()
-                hitung()
-            })
-        })
-
+        }
     </script>
-     <style type="text/css" class="cssStyles">
-        .frame {
-            width: 230px;
-            padding: 50px;
-        }
-        .angka_first, .angka_second {
-            margin-top: 5px;
-            font-weight: 400;
-        }
-    
-        .value, #firstText, #secondtext {
-            float: right;
-            position: relative;
-            width: auto;
-            padding-left: 3px;
-        }
-        #firstText, #secondtext {
-            width: auto;
-        }
-        #result {
-            margin-top: 25px;
-            text-align: center;
-            font-weight: 600;
-        }
-    
-        .frame .e-slider-wrap {
-            display: block;
-            margin-top: 40px;
-        }
-    
-        .column-left {
-            width: 35%;
-            float: left;
-            font-weight: 400;
-            margin-top: 10px;
-        }
-    
-        .column-right {
-            width: 65%;
-            float: right;
-            font-weight: 600;
-            margin-top: 14px;
-        }
-    
-        #heading {
-            font-family: 'Arial Black', Gadget, sans-serif;
-            font-size: larger;
-            padding-bottom: 15px;
-        }
-    </style>
 </head>
 <body>
-    <h1 id="heading">Kalkulator Sederhana</h1>
+    <h1>Kalkulator Sederhana</h1>
     <form action="">
-        <div class="content-container-fluid">
-            <div class="row">
-               <div class="cols-sample-area">
-                  <div class="frame">
-                     <span class="column-left">
-                     <span class="angka_first">Angka Pertama</span>
-                     </span>
-                     <span class="column-right">
-                     <span id="firstText"> </span>
-                     <span class="value"></span>
-                     </span>
-                     <div id="firstSlider">
-                     </div>
-                     <span>
-                        <select id="operation" name="operation" onchange="hitung()">
-                            <option value="+">+</option>
-                            <option value="-">-</option>
-                            <option value="/">:</option>
-                            <option value="*">x</option>
-                        </select>
-                    </span>
-                     <span class="column-left">
-                     <span class="angka_second">Angka Kedua</span>
-                     </span>
-                     <span class="column-right">
-                     <span id="secondtext"></span><span class="value"></span>
-                     </span>
-                     <div id="secondSlider">
-                     </div>
-                     <div>
-                        <input type="number" placeholder="Hasil" id="result">
-                    </div>
-                    <div>
-                        <button id="hitungBtn">Hitung</button>
-                    </div>
-                  </div>
-               </div>
-            </div>
+        <div style="margin-bottom: 10px;">
+            <input type="number" placeholder="Angka Pertama" id="angka_first">
+            <span>
+                <select id="operation" name="operation" onchange="hitung()">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="/">:</option>
+                    <option value="*">x</option>
+                </select>
+            </span>
+            <input type="number" placeholder="Angka Kedua" id="angka_second">
+            <span>=</span>
+            <input type="number" placeholder="Hasil" id="result">
+        </div>
+        <div>
+            <button onclick="hitung(event)">Hitung</button>
         </div>
     </form>
 </body>
